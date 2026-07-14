@@ -1,0 +1,435 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Max Comperatore | Resume</title>
+    <meta name="description" content="Resume of Max Comperatore, AI-Native Product Engineer.">
+    <!-- Google Fonts: Geist & Geist Pixel -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Geist:wght@300;400;500;600;700&family=Geist+Pixel&display=swap" rel="stylesheet">
+    
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: "Geist", system-ui, -apple-system, sans-serif;
+            background-color: #000000;
+            color: #e4e4e7;
+            line-height: 1.6;
+            padding: 80px 20px;
+            display: flex;
+            justify-content: center;
+            align-items: flex-start;
+            min-height: 100vh;
+            -webkit-font-smoothing: antialiased;
+            position: relative;
+        }
+
+        /* Floating Paper Sheet with Raw Steel/Basalt Marble Edge */
+        .resume-container {
+            width: 100%;
+            max-width: 720px;
+            margin: 0 auto;
+            position: relative;
+            border-radius: 8px;
+            padding: 60px 50px;
+            box-shadow: 0 30px 60px -15px rgba(0, 0, 0, 0.9);
+            
+            /* Gradient border technique */
+            border: 1px solid transparent;
+            background-image: linear-gradient(#09090b, #09090b), 
+                              linear-gradient(135deg, #27272a 0%, #52525b 20%, #09090b 40%, #a1a1aa 60%, #18181b 80%, #3f3f46 100%);
+            background-origin: border-box;
+            background-clip: padding-box, border-box;
+        }
+
+        /* Floating print button with matching Metallic Edge */
+        .btn-print {
+            position: fixed;
+            top: 40px;
+            right: 40px;
+            width: 44px;
+            height: 44px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 50%;
+            cursor: pointer;
+            transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+            z-index: 100;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.5);
+            color: #a1a1aa;
+
+            /* Matching micro-gradient border */
+            border: 1px solid transparent;
+            background-image: linear-gradient(#09090b, #09090b), 
+                              linear-gradient(135deg, #27272a, #a1a1aa, #09090b, #52525b);
+            background-origin: border-box;
+            background-clip: padding-box, border-box;
+        }
+
+        .btn-print:hover {
+            color: #ffffff;
+            transform: scale(1.06);
+            box-shadow: 0 4px 16px rgba(255, 255, 255, 0.15);
+            background-image: linear-gradient(#09090b, #09090b), 
+                              linear-gradient(135deg, #ffffff, #a1a1aa, #ffffff, #52525b);
+        }
+
+        /* Top header centered */
+        header {
+            text-align: center;
+            margin-bottom: 45px;
+        }
+
+        h1 {
+            font-size: 32px;
+            font-weight: 600;
+            color: #ffffff;
+            margin-bottom: 8px;
+            letter-spacing: -0.03em;
+        }
+
+        .location {
+            font-family: "Geist Pixel", monospace;
+            font-size: 13px;
+            color: #a1a1aa;
+            margin-bottom: 12px;
+            letter-spacing: 0.05em;
+        }
+
+        .contact-links {
+            display: flex;
+            justify-content: center;
+            gap: 12px;
+            font-size: 14px;
+            flex-wrap: wrap;
+        }
+
+        .contact-links a {
+            color: #a1a1aa;
+            text-decoration: underline;
+            text-underline-offset: 4px;
+            transition: color 0.15s ease;
+        }
+
+        .contact-links a:hover {
+            color: #ffffff;
+        }
+
+        .separator {
+            color: #3f3f46;
+        }
+
+        /* Section Layout */
+        section {
+            margin-bottom: 40px;
+        }
+
+        h2 {
+            font-size: 13px;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.15em;
+            color: #ffffff;
+            padding-bottom: 5px;
+            margin-bottom: 20px;
+            border-bottom: 1px dashed #27272a;
+        }
+
+        .profile-text {
+            font-size: 14.5px;
+            color: #d4d4d8;
+            font-weight: 300;
+        }
+
+        /* Items */
+        .item {
+            margin-bottom: 30px;
+        }
+
+        .item:last-child {
+            margin-bottom: 0;
+        }
+
+        .item-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: baseline;
+            margin-bottom: 6px;
+            flex-wrap: wrap;
+            gap: 5px;
+        }
+
+        .item-title {
+            font-size: 16px;
+            font-weight: 500;
+            color: #ffffff;
+            letter-spacing: -0.02em;
+        }
+
+        .item-meta {
+            font-family: "Geist Pixel", monospace;
+            font-size: 12px;
+            color: #71717a;
+            letter-spacing: 0.05em;
+        }
+
+        .item-desc {
+            list-style-type: none;
+            margin-top: 4px;
+        }
+
+        .item-desc li {
+            position: relative;
+            padding-left: 15px;
+            font-size: 14px;
+            color: #a1a1aa;
+            margin-bottom: 6px;
+            font-weight: 300;
+        }
+
+        .item-desc li::before {
+            content: "•";
+            position: absolute;
+            left: 0;
+            color: #52525b;
+        }
+
+        /* Skills */
+        .skills-container {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }
+
+        .skill-category {
+            font-size: 14px;
+        }
+
+        .skill-category strong {
+            font-weight: 500;
+            color: #ffffff;
+            margin-right: 6px;
+        }
+
+        .skill-category span {
+            color: #a1a1aa;
+            font-weight: 300;
+        }
+
+        /* Premium Scroll Animations */
+        .animate-reveal {
+            opacity: 0;
+            transform: translateY(15px);
+            transition: opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1), 
+                        transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+            will-change: transform, opacity;
+        }
+
+        .animate-reveal.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* Responsive styling for floating button */
+        @media (max-width: 800px) {
+            .btn-print {
+                position: fixed;
+                top: auto;
+                bottom: 24px;
+                right: 24px;
+                box-shadow: 0 4px 20px rgba(0, 0, 0, 0.7);
+            }
+            .btn-print:hover {
+                transform: none;
+            }
+        }
+
+        /* Print Media Stylesheet */
+        @media print {
+            body {
+                background-color: #ffffff !important;
+                color: #000000 !important;
+                padding: 0 !important;
+                margin: 0 !important;
+                display: block !important;
+                font-family: sans-serif !important;
+            }
+
+            .resume-container {
+                max-width: 100% !important;
+                background-color: #ffffff !important;
+                border: none !important;
+                box-shadow: none !important;
+                padding: 0 !important;
+                background-image: none !important;
+            }
+
+            .btn-print {
+                display: none !important;
+            }
+
+            h1, h2, .item-title {
+                color: #000000 !important;
+                border-bottom: none !important;
+            }
+
+            .contact-links a {
+                color: #000000 !important;
+            }
+
+            .item-meta, .location {
+                color: #4b5563 !important;
+            }
+
+            .item-desc li, .profile-text, .skill-category span {
+                color: #1c1917 !important;
+            }
+
+            .item-desc li::before {
+                color: #000000 !important;
+            }
+
+            /* Disable animations on print */
+            .animate-reveal {
+                opacity: 1 !important;
+                transform: none !important;
+                transition: none !important;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Floating Action Button -->
+    <button onclick="window.print()" class="btn-print" title="Save PDF">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/>
+            <polyline points="7 10 12 15 17 10"/>
+            <line x1="12" y1="15" x2="12" y2="3"/>
+        </svg>
+    </button>
+
+    <div class="resume-container">
+        
+        <!-- Bio / Title -->
+        <header>
+            <h1>Max Comperatore</h1>
+            <div class="location">Argentina / UTC-3</div>
+            <div class="contact-links">
+                <a href="mailto:max.comperatore@gmail.com">Email</a>
+                <span class="separator">•</span>
+                <a href="https://linkedin.com/in/maxcomperatore" target="_blank">LinkedIn</a>
+                <span class="separator">•</span>
+                <a href="https://github.com/maxcomperatore" target="_blank">GitHub</a>
+            </div>
+        </header>
+
+        <!-- Profile Section -->
+        <section aria-label="Profile Summary">
+            <h2>Profile</h2>
+            <p class="profile-text">
+                Strategic AI Engineer focused on building high-leverage, production-ready systems. I specialize in integrating large language models with robust backend architectures to automate complex business logic, reduce operational overhead, and drive platform efficiency. With a background in both open-source leadership and enterprise solutions, I deliver technology that prioritizes security, infrastructure stability, and user-centric value.
+            </p>
+        </section>
+
+        <!-- Experience Section -->
+        <section aria-label="Work Experience">
+            <h2>Experience</h2>
+            
+            <div class="item">
+                <div class="item-header">
+                    <div class="item-title">AI Engineer, PXSOL</div>
+                    <div class="item-meta">Remote / 2025</div>
+                </div>
+                <ul class="item-desc">
+                    <li>Designed and deployed AI-native onboarding systems, dramatically reducing customer time-to-value (TTV) across the hospitality SaaS stack.</li>
+                    <li>Optimized infrastructure reliability and internal workflows, reducing customer churn and driving higher Net Promoter Scores (NPS) through intelligent automation.</li>
+                    <li>Mentored engineering teams on high-agency development methodologies, accelerating shipping velocity and AI adoption across products.</li>
+                </ul>
+            </div>
+
+            <div class="item">
+                <div class="item-header">
+                    <div class="item-title">Core Maintainer, Browser Use (YC S24)</div>
+                    <div class="item-meta">Remote / 2025</div>
+                </div>
+                <ul class="item-desc">
+                    <li>Core contributor to the YC-backed open-source agentic web-automation framework, focusing on browser-based LLM orchestration and agent telemetry.</li>
+                    <li>Implemented resilient error-handling and fallback mechanics for enterprise LLM APIs, minimizing agent failure rates and latency.</li>
+                    <li>Engineered high-performance DOM-parsing algorithms and interactive element detection systems, improving agentic task completion rates.</li>
+                </ul>
+            </div>
+
+            <div class="item">
+                <div class="item-header">
+                    <div class="item-title">Software Engineer, Transparencia Latam</div>
+                    <div class="item-meta">Argentina / 2024 - 2025</div>
+                </div>
+                <ul class="item-desc">
+                    <li>Architected the firm's flagship AI legal parser, automating high-risk B2B compliance workflows and securing a 30% reduction in operational costs.</li>
+                    <li>Engineered a scalable self-service vendor portal, accelerating onboarding velocity and increasing ecosystem participation by 40%.</li>
+                </ul>
+            </div>
+        </section>
+
+        <!-- Skills Section -->
+        <section aria-label="Skills & Technologies">
+            <h2>Skills</h2>
+            <div class="skills-container">
+                <div class="skill-category">
+                    <strong>AI & Architecture:</strong>
+                    <span>AI System Design, RAG, LLM Fine-Tuning, Agentic Systems, LangGraph, LangChain, LlamaIndex, Vector Databases (ChromaDB, Pinecone).</span>
+                </div>
+                <div class="skill-category">
+                    <strong>Backend & Infra:</strong>
+                    <span>Python (FastAPI, Flask), Rust, Node.js, TypeScript, Docker, Kubernetes, Solidity, CI/CD, AWS, Vercel, Supabase, PostgreSQL, Redis.</span>
+                </div>
+            </div>
+        </section>
+
+    </div>
+
+    <!-- Scroll Reveal JavaScript -->
+    <script>
+        document.addEventListener("DOMContentLoaded", () => {
+            const observerOptions = {
+                root: null,
+                rootMargin: "0px 0px -60px 0px",
+                threshold: 0.05
+            };
+
+            const observer = new IntersectionObserver((entries, observer) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add("visible");
+                        observer.unobserve(entry.target); // Only trigger once
+                    }
+                });
+            }, observerOptions);
+
+            // Targets: header, sections, and individual job items
+            const targets = document.querySelectorAll("header, section, .item");
+            
+            targets.forEach((target, index) => {
+                target.classList.add("animate-reveal");
+                
+                // Stagger viewport-ready initial items
+                if (index < 4) {
+                    target.style.transitionDelay = `${index * 0.15}s`;
+                }
+                
+                observer.observe(target);
+            });
+        });
+    </script>
+
+</body>
+</html>
